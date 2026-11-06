@@ -7,12 +7,11 @@
   <title>Haji Thabit | PS5 Relapse</title>
   <style>
     :root {
-      color-scheme: dark;
-      --gold: #e3c477;
-      --gold-soft: rgba(227, 196, 119, .34);
-      --ivory: #f5f0e5;
-      --muted: #c9c0ad;
-      --glass: rgba(19, 19, 18, .64);
+      color-scheme: light;
+      --ink: #263248;
+      --muted: #6f7a8c;
+      --accent: #617c9f;
+      --glass: rgba(255, 255, 255, .64);
     }
     * { box-sizing: border-box; }
     html, body { min-height: 100%; margin: 0; }
@@ -26,44 +25,46 @@
       position: relative;
       isolation: isolate;
       background:
-        radial-gradient(ellipse at 50% 5%, rgba(187, 145, 55, .22), transparent 42%),
-        radial-gradient(ellipse at 8% 85%, rgba(144, 105, 35, .12), transparent 34%),
-        repeating-linear-gradient(135deg, transparent 0 34px, rgba(218, 176, 75, .3) 35px, transparent 36px 70px),
-        #080808;
-      color: var(--ivory);
-      font: 16px/1.5 "Segoe UI", Arial, sans-serif;
+        radial-gradient(ellipse at 18% 12%, rgba(255, 255, 255, .95), transparent 36%),
+        radial-gradient(ellipse at 84% 78%, rgba(188, 207, 228, .8), transparent 38%),
+        linear-gradient(135deg, #e8edf2, #dce5ed 48%, #eef0ed);
+      color: var(--ink);
+      font: 16px/1.55 "Segoe UI", "Helvetica Neue", Arial, sans-serif;
     }
-    body::before {
+    body::before, body::after {
       content: "";
       position: fixed;
       z-index: -1;
-      inset: 0;
+      width: 42vw;
+      height: 42vw;
+      min-width: 280px;
+      min-height: 280px;
+      border-radius: 50%;
+      filter: blur(2px);
       pointer-events: none;
-      background: radial-gradient(ellipse at center, transparent 35%, rgba(0, 0, 0, .48) 100%);
     }
+    body::before { top: -18vw; right: -10vw; background: rgba(255, 255, 255, .48); }
+    body::after { bottom: -22vw; left: -12vw; background: rgba(168, 193, 218, .3); }
     main {
       position: relative;
-      isolation: isolate;
-      overflow: hidden;
       width: min(100%, 760px);
       padding: clamp(24px, 5vw, 50px);
       text-align: center;
-      border: 1px solid rgba(232, 195, 107, .48);
-      border-radius: 28px;
-      background: linear-gradient(145deg, rgba(35, 33, 29, .72), rgba(8, 8, 8, .68));
-      box-shadow: 0 30px 90px rgba(0, 0, 0, .68), inset 0 1px rgba(255, 255, 255, .16), 0 0 48px rgba(205, 164, 67, .13);
-      -webkit-backdrop-filter: blur(24px) saturate(135%);
-      backdrop-filter: blur(24px) saturate(135%);
+      border: 1px solid rgba(255, 255, 255, .78);
+      border-radius: 30px;
+      background: linear-gradient(145deg, rgba(255, 255, 255, .76), rgba(255, 255, 255, .48));
+      box-shadow: 0 30px 80px rgba(62, 79, 101, .18), inset 0 1px rgba(255, 255, 255, .9);
+      -webkit-backdrop-filter: blur(24px) saturate(125%);
+      backdrop-filter: blur(24px) saturate(125%);
     }
     main::before {
       content: "";
       position: absolute;
-      z-index: -1;
       top: 0;
-      left: 10%;
-      width: 80%;
+      left: 12%;
+      width: 76%;
       height: 1px;
-      background: linear-gradient(90deg, transparent, rgba(255, 239, 190, .8), transparent);
+      background: linear-gradient(90deg, transparent, rgba(255, 255, 255, .95), transparent);
       pointer-events: none;
     }
     #cat {
@@ -72,26 +73,25 @@
       height: auto;
       max-height: min(62vh, 680px);
       margin: 0 auto 26px;
-      border: 1px solid rgba(232, 195, 107, .7);
-      border-radius: 18px;
-      background: rgba(0, 0, 0, .28);
+      border: 1px solid rgba(255, 255, 255, .88);
+      border-radius: 20px;
+      background: rgba(255, 255, 255, .34);
       object-fit: contain;
-      box-shadow: 0 20px 54px rgba(0, 0, 0, .52), 0 0 30px rgba(218, 176, 75, .15);
+      box-shadow: 0 18px 48px rgba(55, 71, 92, .17);
     }
     h1 {
       margin: 0;
-      color: #f1d991;
+      color: #263248;
       font-family: Georgia, "Times New Roman", serif;
       font-size: clamp(34px, 6vw, 50px);
       font-weight: 500;
-      letter-spacing: .075em;
-      text-shadow: 0 2px 24px rgba(218, 176, 75, .28);
+      letter-spacing: .045em;
     }
     .sub {
       margin: 8px 0 26px;
       color: var(--muted);
       font-size: 12px;
-      letter-spacing: .24em;
+      letter-spacing: .22em;
       text-transform: uppercase;
     }
     #cache-status {
@@ -101,46 +101,46 @@
       gap: 9px 14px;
       margin-bottom: 14px;
       padding: 14px 16px;
-      border: 1px solid rgba(218, 176, 75, .3);
+      border: 1px solid rgba(117, 139, 165, .22);
       border-radius: 14px;
-      background: rgba(0, 0, 0, .32);
-      color: #e0d7c2;
+      background: rgba(255, 255, 255, .42);
+      color: #4c5a6e;
       font-size: 13px;
       text-align: left;
-      box-shadow: inset 0 1px rgba(255, 255, 255, .045);
+      box-shadow: inset 0 1px rgba(255, 255, 255, .7);
     }
-    #cache-status[data-state="success"] { border-color: #78976b; color: #c3dfb2; }
-    #cache-status[data-state="error"] { border-color: #a45b51; color: #f0aaa0; }
+    #cache-status[data-state="success"] { border-color: #9ab9a0; color: #41694a; }
+    #cache-status[data-state="error"] { border-color: #d3a3a0; color: #934e4a; }
     #cache-progress {
       grid-column: 1 / -1;
       width: 100%;
       height: 8px;
       border: 0;
       border-radius: 4px;
-      background: #24211a;
-      accent-color: #d8ad4c;
+      background: #dce3e9;
+      accent-color: var(--accent);
     }
-    #cache-progress::-webkit-progress-bar { border-radius: 4px; background: #24211a; }
-    #cache-progress::-webkit-progress-value { border-radius: 4px; background: linear-gradient(90deg, #a97c22, #f1d27b); }
-    #cache-status[data-state="error"] #cache-progress::-webkit-progress-value { background: #dd7777; }
+    #cache-progress::-webkit-progress-bar { border-radius: 4px; background: #dce3e9; }
+    #cache-progress::-webkit-progress-value { border-radius: 4px; background: linear-gradient(90deg, #7189a7, #a9bdd1); }
+    #cache-status[data-state="error"] #cache-progress::-webkit-progress-value { background: #ca7975; }
     #console {
       width: 100%;
       min-height: 150px;
       max-height: min(42vh, 360px);
       overflow: auto;
       padding: 16px 18px;
-      border: 1px solid rgba(218, 176, 75, .26);
+      border: 1px solid rgba(117, 139, 165, .2);
       border-radius: 14px;
-      background: rgba(0, 0, 0, .42);
-      box-shadow: inset 0 1px rgba(255, 255, 255, .06);
-      color: #e0d7c2;
+      background: rgba(255, 255, 255, .38);
+      box-shadow: inset 0 1px rgba(255, 255, 255, .65);
+      color: #4c5a6e;
       text-align: left;
       overflow-wrap: anywhere;
     }
     #console > div { padding: 3px 0; }
     @media (max-width: 480px) {
       body { padding: 18px 12px; }
-      main { padding: 24px 16px; border-radius: 20px; }
+      main { padding: 24px 16px; border-radius: 22px; }
       #cat { max-height: 52vh; margin-bottom: 21px; }
       #console { min-height: 130px; padding: 12px; font-size: 14px; }
     }
