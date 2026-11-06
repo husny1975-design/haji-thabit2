@@ -6,6 +6,14 @@
   <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
   <title>Haji Thabit | PS5 Relapse</title>
   <style>
+    :root {
+      color-scheme: dark;
+      --gold: #e3c477;
+      --gold-soft: rgba(227, 196, 119, .34);
+      --ivory: #f5f0e5;
+      --muted: #c9c0ad;
+      --glass: rgba(19, 19, 18, .64);
+    }
     * { box-sizing: border-box; }
     html, body { min-height: 100%; margin: 0; }
     body {
@@ -15,57 +23,91 @@
       align-items: center;
       justify-content: center;
       overflow-x: hidden;
-      background-color: #080808;
-      background-image:
-        radial-gradient(ellipse at 50% 0%, rgba(196, 153, 55, .18), transparent 55%),
-        repeating-linear-gradient(135deg, transparent 0 27px, rgba(218, 176, 75, .58) 28px, transparent 29px 54px);
-      color: #f5f0e5;
+      position: relative;
+      isolation: isolate;
+      background:
+        radial-gradient(ellipse at 50% 5%, rgba(187, 145, 55, .22), transparent 42%),
+        radial-gradient(ellipse at 8% 85%, rgba(144, 105, 35, .12), transparent 34%),
+        repeating-linear-gradient(135deg, transparent 0 34px, rgba(218, 176, 75, .3) 35px, transparent 36px 70px),
+        #080808;
+      color: var(--ivory);
       font: 16px/1.5 "Segoe UI", Arial, sans-serif;
     }
+    body::before {
+      content: "";
+      position: fixed;
+      z-index: -1;
+      inset: 0;
+      pointer-events: none;
+      background: radial-gradient(ellipse at center, transparent 35%, rgba(0, 0, 0, .48) 100%);
+    }
     main {
+      position: relative;
+      isolation: isolate;
+      overflow: hidden;
       width: min(100%, 760px);
-      padding: clamp(22px, 5vw, 46px);
+      padding: clamp(24px, 5vw, 50px);
       text-align: center;
       border: 1px solid rgba(232, 195, 107, .48);
-      border-radius: 24px;
-      background: linear-gradient(145deg, rgba(25, 24, 21, .78), rgba(8, 8, 8, .68));
-      box-shadow: 0 24px 80px rgba(0, 0, 0, .62), inset 0 1px rgba(255, 255, 255, .12), 0 0 38px rgba(205, 164, 67, .1);
-      -webkit-backdrop-filter: blur(18px);
-      backdrop-filter: blur(18px);
+      border-radius: 28px;
+      background: linear-gradient(145deg, rgba(35, 33, 29, .72), rgba(8, 8, 8, .68));
+      box-shadow: 0 30px 90px rgba(0, 0, 0, .68), inset 0 1px rgba(255, 255, 255, .16), 0 0 48px rgba(205, 164, 67, .13);
+      -webkit-backdrop-filter: blur(24px) saturate(135%);
+      backdrop-filter: blur(24px) saturate(135%);
+    }
+    main::before {
+      content: "";
+      position: absolute;
+      z-index: -1;
+      top: 0;
+      left: 10%;
+      width: 80%;
+      height: 1px;
+      background: linear-gradient(90deg, transparent, rgba(255, 239, 190, .8), transparent);
+      pointer-events: none;
     }
     #cat {
       display: block;
       width: min(100%, 560px);
       height: auto;
       max-height: min(62vh, 680px);
-      margin: 0 auto 24px;
-      border: 1px solid rgba(232, 195, 107, .72);
-      border-radius: 16px;
+      margin: 0 auto 26px;
+      border: 1px solid rgba(232, 195, 107, .7);
+      border-radius: 18px;
+      background: rgba(0, 0, 0, .28);
       object-fit: contain;
-      box-shadow: 0 18px 48px rgba(0, 0, 0, .48), 0 0 26px rgba(218, 176, 75, .12);
+      box-shadow: 0 20px 54px rgba(0, 0, 0, .52), 0 0 30px rgba(218, 176, 75, .15);
     }
     h1 {
       margin: 0;
-      color: #f4d47e;
-      font-size: clamp(30px, 6vw, 46px);
-      font-weight: 650;
-      letter-spacing: .06em;
-      text-shadow: 0 2px 18px rgba(218, 176, 75, .24);
+      color: #f1d991;
+      font-family: Georgia, "Times New Roman", serif;
+      font-size: clamp(34px, 6vw, 50px);
+      font-weight: 500;
+      letter-spacing: .075em;
+      text-shadow: 0 2px 24px rgba(218, 176, 75, .28);
     }
-    .sub { margin: 5px 0 24px; color: #d3c7a6; font-size: 15px; letter-spacing: .12em; }
+    .sub {
+      margin: 8px 0 26px;
+      color: var(--muted);
+      font-size: 12px;
+      letter-spacing: .24em;
+      text-transform: uppercase;
+    }
     #cache-status {
       display: grid;
       grid-template-columns: 1fr auto;
       align-items: center;
       gap: 9px 14px;
       margin-bottom: 14px;
-      padding: 13px 15px;
+      padding: 14px 16px;
       border: 1px solid rgba(218, 176, 75, .3);
-      border-radius: 12px;
-      background: rgba(0, 0, 0, .35);
+      border-radius: 14px;
+      background: rgba(0, 0, 0, .32);
       color: #e0d7c2;
       font-size: 13px;
       text-align: left;
+      box-shadow: inset 0 1px rgba(255, 255, 255, .045);
     }
     #cache-status[data-state="success"] { border-color: #78976b; color: #c3dfb2; }
     #cache-status[data-state="error"] { border-color: #a45b51; color: #f0aaa0; }
@@ -86,11 +128,11 @@
       min-height: 150px;
       max-height: min(42vh, 360px);
       overflow: auto;
-      padding: 15px 17px;
-      border: 1px solid rgba(218, 176, 75, .28);
-      border-radius: 12px;
-      background: rgba(0, 0, 0, .52);
-      box-shadow: inset 0 1px rgba(255, 255, 255, .05);
+      padding: 16px 18px;
+      border: 1px solid rgba(218, 176, 75, .26);
+      border-radius: 14px;
+      background: rgba(0, 0, 0, .42);
+      box-shadow: inset 0 1px rgba(255, 255, 255, .06);
       color: #e0d7c2;
       text-align: left;
       overflow-wrap: anywhere;
@@ -98,8 +140,8 @@
     #console > div { padding: 3px 0; }
     @media (max-width: 480px) {
       body { padding: 18px 12px; }
-      main { padding: 22px 16px; border-radius: 18px; }
-      #cat { max-height: 52vh; margin-bottom: 19px; }
+      main { padding: 24px 16px; border-radius: 20px; }
+      #cat { max-height: 52vh; margin-bottom: 21px; }
       #console { min-height: 130px; padding: 12px; font-size: 14px; }
     }
     @media (prefers-reduced-motion: no-preference) {
