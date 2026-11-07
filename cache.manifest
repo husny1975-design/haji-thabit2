@@ -1,5 +1,4 @@
 CACHE MANIFEST
-# Relapse Exploit Offline Loader - Core + Offsets Stable Build
 
 CACHE:
 index.html
@@ -55,5 +54,3 @@ payloads/etaHEN.elf
 NETWORK:
 *
 
-FALLBACK:
-/ index.html
