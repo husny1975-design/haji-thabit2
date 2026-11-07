@@ -5,7 +5,7 @@ CACHE MANIFEST
 
 CACHE:
 index.html
-photo.jpg
+photo2.jpg
 src/firmware.js
 src/main.js
 src/rop.js
@@ -29,4 +29,3 @@ NETWORK:
 
 FALLBACK:
 / index.html
-
