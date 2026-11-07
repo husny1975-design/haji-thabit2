@@ -2,7 +2,6 @@ CACHE MANIFEST
 
 CACHE:
 index.html
-photo.jpg
 src/firmware.js
 src/main.js
 src/rop.js
