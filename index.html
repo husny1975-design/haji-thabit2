@@ -101,6 +101,8 @@
     #cache-label {
       font-weight: 500;
     }
+    #cache-status[data-state="checking"] { border-color: var(--border); color: var(--text); }
+    
     #cache-count {
       font-family: ui-monospace, SFMono-Regular, Menlo, monospace;
       font-size: 12px;
@@ -158,7 +160,8 @@
 </head>
 <body>
   <main>
-    <img id="cat" src="./photo.jpg" alt="Haji Thabit">
+    <!-- تم تعديل اسم الصورة هنا إلى photo2.jpg -->
+    <img id="cat" src="./photo2.jpg" alt="Haji Thabit">
     <h1>Haji Thabit</h1>
     <p class="sub">PS5 Relapse</p>
     <div id="cache-status" data-state="checking" role="status" aria-live="polite">
