@@ -51,5 +51,9 @@ payloads/kstuff.elf
 payloads/pldmgr.elf
 payloads/elfldr-ps5-1360.elf
 payloads/OnionHEN.elf
+
 NETWORK:
 *
+
+FALLBACK:
+/ index.html
