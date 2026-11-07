@@ -8,173 +8,131 @@
   <style>
     :root {
       color-scheme: dark;
-      --ink: #f1f5f9;
-      --muted: #a78bfa;
-      --accent: #06b6d4;
-      --neon-glow: rgba(139, 92, 246, 0.3);
-      --glass: rgba(10, 10, 18, 0.7);
+      --bg: #090b0f;
+      --card-bg: #11141a;
+      --border: #1e2330;
+      --text: #f8fafc;
+      --text-muted: #64748b;
+      --accent: #38bdf8;
+      --accent-glow: rgba(56, 189, 248, 0.15);
     }
-    * { box-sizing: border-box; }
-    html, body { min-height: 100%; margin: 0; }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    html, body { min-height: 100%; background-color: var(--bg); }
     body {
       min-height: 100vh;
-      padding: 36px 20px;
+      padding: 40px 20px;
       display: flex;
       align-items: center;
       justify-content: center;
-      overflow-x: hidden;
-      position: relative;
-      isolation: isolate;
-      background: 
-        radial-gradient(circle at 20% 20%, rgba(124, 58, 237, 0.25), transparent 45%),
-        radial-gradient(circle at 80% 80%, rgba(6, 182, 212, 0.15), transparent 50%),
-        linear-gradient(160deg, #03000a, #0b071a 50%, #020005);
-      color: var(--ink);
-      font: 16px/1.55 "Segoe UI", "Helvetica Neue", Arial, sans-serif;
+      color: var(--text);
+      font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
+      -webkit-font-smoothing: antialiased;
     }
-    
-    /* خلفية سايبر متحركة ناعمة جداً */
-    body::before {
-      content: "";
-      position: fixed;
-      top: -50%; left: -50%; right: -50%; bottom: -50%;
-      z-index: -1;
-      background: radial-gradient(circle, rgba(139, 92, 246, 0.05) 2px, transparent 40px);
-      background-size: 40px 40px;
-      animation: cosmicShift 40s linear infinite;
-      pointer-events: none;
-    }
-    @keyframes cosmicShift {
-      from { transform: rotate(0deg); }
-      to { transform: rotate(360deg); }
-    }
-
     main {
+      width: min(100%, 680px);
+      padding: clamp(24px, 6vw, 44px);
+      border: 1px solid var(--border);
+      border-radius: 16px;
+      background: var(--card-bg);
+      box-shadow: 0 30px 60px rgba(0, 0, 0, 0.8);
       position: relative;
-      width: min(100%, 760px);
-      padding: clamp(24px, 5vw, 50px);
-      text-align: center;
-      border: 1px solid rgba(139, 92, 246, 0.2);
-      border-radius: 24px;
-      background: var(--glass);
-      box-shadow: 
-        0 40px 100px rgba(0, 0, 0, 0.7), 
-        0 0 40px var(--neon-glow),
-        inset 0 1px rgba(255, 255, 255, 0.05);
-      -webkit-backdrop-filter: blur(30px) saturate(140%);
-      backdrop-filter: blur(30px) saturate(140%);
-      transition: transform 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275), box-shadow 0.4s ease;
     }
-    main:hover {
-      transform: translateY(-4px);
-      box-shadow: 
-        0 50px 120px rgba(0, 0, 0, 0.8), 
-        0 0 60px rgba(6, 182, 212, 0.25),
-        inset 0 1px rgba(255, 255, 255, 0.1);
-      border-color: rgba(6, 182, 212, 0.4);
-    }
+    /* خط هيدر احترافي علوي */
     main::before {
       content: "";
       position: absolute;
-      top: 0;
-      left: 10%;
-      width: 80%;
-      height: 2px;
-      background: linear-gradient(90deg, transparent, var(--accent), #c084fc, transparent);
-      pointer-events: none;
+      top: -1px; left: 40px; right: 40px;
+      height: 1px;
+      background: linear-gradient(90deg, transparent, var(--accent), transparent);
     }
     #cat {
       display: block;
-      width: min(100%, 560px);
+      width: 100%;
+      max-width: 480px;
       height: auto;
-      max-height: min(58vh, 600px);
-      margin: 0 auto 26px;
-      border: 2px solid rgba(255, 255, 255, 0.05);
-      border-radius: 16px;
-      background: rgba(0, 0, 0, 0.5);
+      max-height: min(50vh, 450px);
+      margin: 0 auto 32px;
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      background: #000;
       object-fit: contain;
-      box-shadow: 0 20px 50px rgba(0, 0, 0, 0.6);
-      transition: filter 0.5s ease, border-color 0.5s ease;
-    }
-    main:hover #cat {
-      border-color: rgba(139, 92, 246, 0.4);
-      filter: drop-shadow(0 0 15px rgba(139, 92, 246, 0.2));
+      box-shadow: 0 16px 36px rgba(0,0,0,0.5);
     }
     h1 {
-      margin: 0;
+      font-size: clamp(28px, 5vw, 38px);
+      font-weight: 700;
+      letter-spacing: -0.03em;
       color: #ffffff;
+      margin-bottom: 4px;
       font-family: system-ui, -apple-system, sans-serif;
-      font-size: clamp(36px, 6vw, 54px);
-      font-weight: 800;
-      letter-spacing: -0.02em;
-      background: linear-gradient(135deg, #ffffff 30%, #c084fc 100%);
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
     }
     .sub {
-      margin: 6px 0 28px;
-      color: var(--accent);
-      font-size: 13px;
-      font-weight: 700;
-      letter-spacing: .35em;
+      color: var(--text-muted);
+      font-size: 11px;
+      font-weight: 600;
+      letter-spacing: 0.4em;
       text-transform: uppercase;
-      text-shadow: 0 0 10px rgba(6, 182, 212, 0.5);
+      margin-bottom: 32px;
     }
     #cache-status {
       display: grid;
       grid-template-columns: 1fr auto;
       align-items: center;
-      gap: 10px 14px;
-      margin-bottom: 16px;
+      gap: 12px;
+      margin-bottom: 20px;
       padding: 16px 20px;
-      border: 1px solid rgba(255, 255, 255, 0.05);
-      border-radius: 14px;
-      background: rgba(5, 5, 10, 0.6);
-      color: #94a3b8;
-      font-size: 14px;
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      background: #0d0f13;
+      font-size: 13px;
       text-align: left;
-      box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.5);
     }
-    #cache-status[data-state="success"] { border-color: #10b981; color: #34d399; text-shadow: 0 0 8px rgba(16, 185, 129, 0.3); }
-    #cache-status[data-state="error"] { border-color: #ef4444; color: #f87171; text-shadow: 0 0 8px rgba(239, 68, 68, 0.3); }
-    #cache-status[data-state="downloading"] { border-color: var(--accent); color: #e2e8f0; }
-    
+    #cache-status[data-state="success"] { border-color: rgba(34, 197, 94, 0.3); color: #4ade80; }
+    #cache-status[data-state="error"] { border-color: rgba(239, 68, 68, 0.3); color: #f87171; }
+    #cache-status[data-state="downloading"] { border-color: rgba(56, 189, 248, 0.4); }
+
     #cache-progress {
       grid-column: 1 / -1;
       width: 100%;
-      height: 6px;
+      height: 4px;
       border: 0;
-      border-radius: 10px;
-      background: #1e1b4b;
+      border-radius: 2px;
+      background: #1e293b;
       accent-color: var(--accent);
     }
-    #cache-progress::-webkit-progress-bar { border-radius: 10px; background: #1e1b4b; }
-    #cache-progress::-webkit-progress-value { border-radius: 10px; background: linear-gradient(90deg, #06b6d4, #8b5cf6); box-shadow: 0 0 10px var(--accent); }
-    #cache-status[data-state="error"] #cache-progress::-webkit-progress-value { background: #ef4444; box-shadow: 0 0 10px #ef4444; }
-    
+    #cache-progress::-webkit-progress-bar { border-radius: 2px; background: #1e293b; }
+    #cache-progress::-webkit-progress-value { border-radius: 2px; background: var(--accent); }
+    #cache-status[data-state="success"] #cache-progress::-webkit-progress-value { background: #22c55e; }
+    #cache-status[data-state="error"] #cache-progress::-webkit-progress-value { background: #ef4444; }
+
     #console {
       width: 100%;
-      min-height: 140px;
-      max-height: min(40vh, 320px);
-      overflow: auto;
-      padding: 16px 20px;
-      border: 1px solid rgba(139, 92, 246, 0.15);
-      border-radius: 14px;
-      background: rgba(3, 0, 8, 0.7);
-      box-shadow: inset 0 2px 8px rgba(0,0,0,0.8);
-      color: #a78bfa;
-      font-family: monospace;
-      font-size: 13px;
+      min-height: 120px;
+      max-height: 240px;
+      overflow-auto: auto;
+      padding: 16px;
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      background: #0d0f13;
+      color: #94a3b8;
+      font-size: 12px;
+      line-height: 1.6;
       text-align: left;
       overflow-wrap: anywhere;
     }
-    #console > div { padding: 4px 0; border-bottom: 1px solid rgba(255,255,255,0.02); }
-    
+    #console > div {
+      padding: 2px 0;
+      border-bottom: 1px solid rgba(255,255,255,0.01);
+    }
+    #console > div::before {
+      content: "> ";
+      color: var(--accent);
+    }
     @media (max-width: 480px) {
-      body { padding: 16px 12px; }
-      main { padding: 24px 16px; border-radius: 20px; }
-      #cat { max-height: 48vh; margin-bottom: 20px; }
-      #console { min-height: 120px; padding: 12px; font-size: 12px; }
+      body { padding: 20px 12px; }
+      main { padding: 24px 16px; border-radius: 12px; }
+      #cat { margin-bottom: 24px; }
+      .sub { margin-bottom: 24px; }
     }
   </style>
 </head>
