@@ -50,7 +50,9 @@ offsets/13.60.js
 payloads/kstuff.elf
 payloads/pldmgr.elf
 payloads/elfldr-ps5-1360.elf
+
 NETWORK:
 *
+
 FALLBACK:
 / index.html
