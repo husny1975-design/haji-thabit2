@@ -54,6 +54,7 @@ offsets/13.60.js
 payloads/pldmgr.elf
 payloads/elfldr-ps5-1360.elf
 payloads/kstuff.elf
+payloads/kexp_2026_05_25.bin
 
 NETWORK:
 *
