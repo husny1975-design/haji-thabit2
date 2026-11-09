@@ -156,10 +156,17 @@ async function sendElf(name, payload, p, chain) {
 export async function loadOptionalPayloads(p, chain, log) {
   log("preparing optional payloads");
   const kstuff = await mapElf("kstuff.elf", p, chain);
+  const shadowmount = await mapElf("shadowmountplus.elf", p, chain);
   const pldmgr = await mapElf("pldmgr.elf", p, chain);
+
   await sendElf("kstuff.elf", kstuff, p, chain);
   log("kstuff.elf sent");
   await new Promise((resolve) => setTimeout(resolve, 3000));
+
+  await sendElf("shadowmountplus.elf", shadowmount, p, chain);
+  log("shadowmountplus.elf sent");
+  await new Promise((resolve) => setTimeout(resolve, 1000));
+
   await sendElf("pldmgr.elf", pldmgr, p, chain);
   log("pldmgr.elf sent");
 }
